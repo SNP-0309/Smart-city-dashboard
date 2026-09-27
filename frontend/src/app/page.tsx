@@ -17,10 +17,14 @@ import AlertsPage from '@/components/pages/AlertsPage';
 import AnalyticsPage from '@/components/pages/AnalyticsPage';
 import AdminPage from '@/components/pages/AdminPage';
 import AIAlertsPage from '@/components/pages/AIAlertsPage';
+import RoadIntelligencePage from '@/components/pages/RoadIntelligencePage';
+import AdminOperationsPage from '@/components/pages/AdminOperationsPage';
 import MobileBottomNav from '@/components/MobileBottomNav';
 
 const pageMap: Record<string, React.ComponentType> = {
   overview: OverviewPage,
+  'road-intelligence': RoadIntelligencePage,
+  'issue-operations': AdminOperationsPage,
   map: MapPage,
   traffic: TrafficPage,
   aqi: AQIPage,

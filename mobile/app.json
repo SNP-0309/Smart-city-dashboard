@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "MetroCity AI",
+    "slug": "metrocity-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "scheme": "metrocityai",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.metrocityai.mobile"
+    },
+    "android": {
+      "package": "com.metrocityai.mobile",
+      "softwareKeyboardLayoutMode": "resize",
+      "adaptiveIcon": {
+        "backgroundColor": "#07111f"
+      }
+    },
+    "plugins": [
+      ["expo-location", { "locationWhenInUsePermission": "Allow MetroCity AI to use your location to pin civic issues." }],
+      ["expo-image-picker", { "photosPermission": "Allow MetroCity AI to attach evidence photos to civic reports." }]
+    ],
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}

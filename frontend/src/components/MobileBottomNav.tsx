@@ -1,11 +1,12 @@
 'use client';
 
 import { useAppStore } from '@/lib/store';
-import { LayoutDashboard, Car, Wind, MessageSquare, Brain } from 'lucide-react';
+import { LayoutDashboard, Car, Wind, MessageSquare, Brain, Route } from 'lucide-react';
 import { aiPredictions } from '@/lib/mockData';
 
 const mobileNav = [
   { id: 'overview',   label: 'Home',       icon: LayoutDashboard },
+  { id: 'road-intelligence', label: 'Roads', icon: Route },
   { id: 'traffic',    label: 'Traffic',    icon: Car },
   { id: 'aqi',        label: 'Air',        icon: Wind },
   { id: 'complaints', label: 'Reports',    icon: MessageSquare },
