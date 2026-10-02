@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useAppStore } from '@/lib/store';
-import { Bell, Search, User, ChevronDown, Shield, LogOut, ToggleLeft, ToggleRight, Menu, Brain, X, MessageSquare, Siren, Sun, Moon } from 'lucide-react';
+import { Bell, Search, User, ChevronDown, Shield, LogOut, Menu, Brain, X, MessageSquare, Siren, Sun, Moon } from 'lucide-react';
 import { alerts, aiPredictions } from '@/lib/mockData';
 import FeedbackModal from '@/components/FeedbackModal';
 
@@ -11,7 +11,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onMobileMenuToggle }: NavbarProps) {
-  const { role, setRole, notifications, clearNotifications, activePage, theme, setTheme, triggerEmergencyMode, addLog } = useAppStore();
+  const { notifications, clearNotifications, activePage, theme, setTheme, triggerEmergencyMode, addLog } = useAppStore();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -19,6 +19,8 @@ export default function Navbar({ onMobileMenuToggle }: NavbarProps) {
 
   const pageNames: Record<string, string> = {
     overview: 'City Overview',
+    'road-intelligence': 'Nalasopara Road Intelligence',
+    'issue-operations': 'Admin Issue Operations',
     map: 'Live City Map',
     traffic: 'Traffic Monitoring',
     aqi: 'Air Quality Index',
@@ -249,20 +251,16 @@ export default function Navbar({ onMobileMenuToggle }: NavbarProps) {
         {theme === 'dark' ? <Moon size={16} color="#94a3b8" /> : <Sun size={16} color="#f59e0b" />}
       </button>
 
-      {/* Role toggle - hide label on small screens */}
+      {/* Protected admin role */}
       <div
-        onClick={() => setRole(role === 'admin' ? 'citizen' : 'admin')}
         style={{
           display: 'flex', alignItems: 'center', gap: 6,
-          padding: '5px 10px', borderRadius: 10, cursor: 'pointer', flexShrink: 0,
+          padding: '5px 10px', borderRadius: 10, flexShrink: 0,
           background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
         }}
       >
-        <Shield size={13} color={role === 'admin' ? '#00d4ff' : '#10b981'} />
-        <span className="role-label" style={{ fontSize: 11, fontWeight: 700, color: role === 'admin' ? '#00d4ff' : '#10b981', textTransform: 'capitalize' }}>
-          {role}
-        </span>
-        {role === 'admin' ? <ToggleRight size={16} color="#00d4ff" /> : <ToggleLeft size={16} color="#10b981" />}
+        <Shield size={13} color="#00d4ff" />
+        <span className="role-label" style={{ fontSize: 11, fontWeight: 700, color: '#00d4ff', textTransform: 'capitalize' }}>admin only</span>
       </div>
 
       {/* Profile */}

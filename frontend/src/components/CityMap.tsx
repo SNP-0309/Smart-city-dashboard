@@ -6,7 +6,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 export type MapMarker = {
   id: string;
-  kind: 'complaint' | 'traffic' | 'water' | 'waste';
+  kind: 'complaint' | 'traffic' | 'water' | 'waste' | 'road';
   title: string;
   subtitle?: string;
   severity?: 'good' | 'warning' | 'critical';
@@ -17,7 +17,7 @@ export type MapMarker = {
 
 function iconFor(kind: MapMarker['kind'], severity?: MapMarker['severity']) {
   const color =
-    severity === 'critical' ? '#ef4444' : severity === 'warning' ? '#f59e0b' : kind === 'water' ? '#3b82f6' : kind === 'waste' ? '#10b981' : kind === 'traffic' ? '#f97316' : '#00d4ff';
+    severity === 'critical' ? '#ef4444' : severity === 'warning' ? '#f59e0b' : kind === 'water' ? '#3b82f6' : kind === 'waste' ? '#10b981' : kind === 'traffic' ? '#f97316' : kind === 'road' ? '#a78bfa' : '#00d4ff';
 
   return L.divIcon({
     className: '',

@@ -1,0 +1,23 @@
+{
+  "build": {
+    "development": {
+      "image": "sdk-57",
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "image": "sdk-57",
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "image": "sdk-57",
+      "autoIncrement": true,
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+  }
+}

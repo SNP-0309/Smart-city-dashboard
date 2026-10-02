@@ -3,12 +3,12 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "MetroCity Smart Dashboard | Unified Urban Monitoring",
-  description: "Real-time monitoring and management platform for MetroCity — traffic, air quality, waste, water, and citizen complaints",
+  title: "MetroCity AI | Nalasopara Road Intelligence",
+  description: "AI-assisted GIS road maintenance, citizen complaints, evidence workflows, and transparent governance for the Nalasopara pilot.",
   keywords: ["smart city", "dashboard", "urban monitoring", "traffic", "air quality", "IoT"],
   openGraph: {
-    title: "MetroCity Smart Dashboard",
-    description: "Unified Smart City Monitoring Platform",
+    title: "MetroCity AI — Nalasopara Road Intelligence",
+    description: "Evidence-based road maintenance and transparent governance",
     type: "website",
   },
 };

@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react';
 import { useAppStore } from '@/lib/store';
 import {
   LayoutDashboard, Car, Wind, Trash2, Droplets,
-  MessageSquare, Settings, Menu, X, Shield, Zap, Building2, Map,
+  MessageSquare, Settings, Menu, X, Shield, Zap, Building2, Map, Route, ClipboardList,
   Bell, TrendingUp, Brain, ChevronRight
 } from 'lucide-react';
 import { aiPredictions } from '@/lib/mockData';
 
 const navItems = [
   { id: 'overview',    label: 'Overview',      icon: LayoutDashboard },
-  { id: 'map',         label: 'Live Map',      icon: Map },
+  { id: 'road-intelligence', label: 'Road Intelligence', icon: Route },
+  { id: 'map',         label: 'City Map',      icon: Map },
   { id: 'traffic',     label: 'Traffic',        icon: Car },
   { id: 'aqi',         label: 'Air Quality',    icon: Wind },
   { id: 'waste',       label: 'Waste Mgmt',     icon: Trash2 },
@@ -22,6 +23,7 @@ const navItems = [
 ];
 
 const adminItems = [
+  { id: 'issue-operations', label: 'Issue Operations', icon: ClipboardList },
   { id: 'ai-alerts',   label: 'AI Predictions', icon: Brain,       badge: 'NEW' },
   { id: 'analytics',   label: 'Analytics',       icon: TrendingUp },
   { id: 'admin',       label: 'Admin Panel',     icon: Settings },
@@ -103,8 +105,8 @@ export default function Sidebar({ mobileOpen = false, onMobileClose }: SidebarPr
           </div>
           {!isCollapsed && (
             <div>
-              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 16, color: '#f0f6ff' }}>MetroCity</div>
-              <div style={{ fontSize: 10, color: '#475569', letterSpacing: '0.6px', textTransform: 'uppercase' }}>Smart Dashboard</div>
+              <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: 16, color: '#f0f6ff' }}>MetroCity AI</div>
+              <div style={{ fontSize: 10, color: '#475569', letterSpacing: '0.6px', textTransform: 'uppercase' }}>Nalasopara Pilot</div>
             </div>
           )}
           {isMobile && (

@@ -1,6 +1,6 @@
 // Mock Data for Unified Smart City Dashboard
 
-export const CITY_NAME = "MetroCity";
+export const CITY_NAME = "Nalasopara";
 
 // AQI Data
 export const aqiZones = [
@@ -562,3 +562,56 @@ export function getSystemColor(system: PredictionSystem): string {
     case "flood": return "#00d4ff";
   }
 }
+
+// ── MetroCity AI: Nalasopara Road Intelligence (synthetic demo records) ─────
+// These records are intentionally marked as synthetic until verified municipal
+// and field-survey data is connected to the application.
+export type RoadConditionStatus = "Good" | "Needs review" | "Poor" | "Critical";
+
+export type RoadSegment = {
+  id: string;
+  name: string;
+  area: string;
+  roadType: "Arterial" | "Collector" | "Local";
+  conditionStatus: RoadConditionStatus;
+  conditionScore: number;
+  priorityScore: number;
+  verificationStatus: "Verified" | "Pending review" | "Unverified";
+  lastVerifiedAt: string;
+  complaintCount: number;
+  openComplaints: number;
+  waterloggingRisk: "Low" | "Medium" | "High";
+  maintenanceStatus: "Monitoring" | "Proposal pending" | "Work in progress" | "Completed";
+  source: string;
+  lat: number;
+  lng: number;
+};
+
+export const roadSegments: RoadSegment[] = [
+  { id: "RD-NAL-001", name: "Tulinj Road", area: "Nalasopara East", roadType: "Arterial", conditionStatus: "Critical", conditionScore: 28, priorityScore: 92, verificationStatus: "Verified", lastVerifiedAt: "2026-09-22", complaintCount: 18, openComplaints: 11, waterloggingRisk: "High", maintenanceStatus: "Proposal pending", source: "Field survey · synthetic", lat: 19.4231, lng: 72.8245 },
+  { id: "RD-NAL-002", name: "Nalasopara–Virar Link Road", area: "Nalasopara West", roadType: "Arterial", conditionStatus: "Poor", conditionScore: 42, priorityScore: 84, verificationStatus: "Verified", lastVerifiedAt: "2026-09-20", complaintCount: 13, openComplaints: 7, waterloggingRisk: "High", maintenanceStatus: "Work in progress", source: "Field survey · synthetic", lat: 19.4117, lng: 72.8068 },
+  { id: "RD-NAL-003", name: "Achole Road", area: "Achole", roadType: "Collector", conditionStatus: "Poor", conditionScore: 51, priorityScore: 76, verificationStatus: "Pending review", lastVerifiedAt: "2026-09-18", complaintCount: 9, openComplaints: 5, waterloggingRisk: "Medium", maintenanceStatus: "Proposal pending", source: "Citizen reports · synthetic", lat: 19.4248, lng: 72.8298 },
+  { id: "RD-NAL-004", name: "Station Road", area: "Nalasopara East", roadType: "Arterial", conditionStatus: "Needs review", conditionScore: 64, priorityScore: 68, verificationStatus: "Verified", lastVerifiedAt: "2026-09-21", complaintCount: 7, openComplaints: 3, waterloggingRisk: "Medium", maintenanceStatus: "Monitoring", source: "Field survey · synthetic", lat: 19.4267, lng: 72.8234 },
+  { id: "RD-NAL-005", name: "Central Park Road", area: "Nalasopara West", roadType: "Collector", conditionStatus: "Needs review", conditionScore: 69, priorityScore: 57, verificationStatus: "Pending review", lastVerifiedAt: "2026-09-16", complaintCount: 5, openComplaints: 2, waterloggingRisk: "Low", maintenanceStatus: "Monitoring", source: "Citizen reports · synthetic", lat: 19.4058, lng: 72.8052 },
+  { id: "RD-NAL-006", name: "Morya Nagar Lane", area: "Morya Nagar", roadType: "Local", conditionStatus: "Good", conditionScore: 82, priorityScore: 31, verificationStatus: "Verified", lastVerifiedAt: "2026-09-19", complaintCount: 2, openComplaints: 0, waterloggingRisk: "Low", maintenanceStatus: "Completed", source: "Field survey · synthetic", lat: 19.4178, lng: 72.8172 },
+  { id: "RD-NAL-007", name: "Don Lane", area: "Nalasopara West", roadType: "Local", conditionStatus: "Good", conditionScore: 88, priorityScore: 22, verificationStatus: "Verified", lastVerifiedAt: "2026-09-17", complaintCount: 1, openComplaints: 0, waterloggingRisk: "Low", maintenanceStatus: "Completed", source: "Field survey · synthetic", lat: 19.3998, lng: 72.8126 },
+];
+
+export const roadPriorityRecommendations = [
+  { roadId: "RD-NAL-001", factor: "Verified severe surface damage", contribution: 38, detail: "Condition score 28/100 from the latest field survey." },
+  { roadId: "RD-NAL-001", factor: "Validated complaint cluster", contribution: 24, detail: "11 open complaints across the same road segment." },
+  { roadId: "RD-NAL-001", factor: "Waterlogging exposure", contribution: 18, detail: "High monsoon-risk indicator; source requires seasonal validation." },
+  { roadId: "RD-NAL-001", factor: "Data freshness", contribution: 12, detail: "Verified within the last 7 days." },
+];
+
+export const roadProjects = [
+  { id: "PRJ-NAL-014", title: "Tulinj Road resurfacing proposal", roadId: "RD-NAL-001", contractor: "Awaiting proposal", status: "Admin review", progress: 12, budget: "₹18.4L", eta: "Oct 2026" },
+  { id: "PRJ-NAL-011", title: "Nalasopara–Virar link patch repair", roadId: "RD-NAL-002", contractor: "Konkan Roadworks", status: "Work in progress", progress: 64, budget: "₹11.2L", eta: "28 Sep 2026" },
+  { id: "PRJ-NAL-009", title: "Station Road drainage inspection", roadId: "RD-NAL-004", contractor: "Pending assignment", status: "Proposal pending", progress: 0, budget: "₹4.8L", eta: "TBD" },
+];
+
+export const dailyWorkReports = [
+  { id: "DWR-260925-07", worker: "R. Patil", project: "Nalasopara–Virar link patch repair", date: "25 Sep 2026", type: "Pothole patching", status: "Verified", evidence: 3, location: "19.4117, 72.8068" },
+  { id: "DWR-260924-06", worker: "S. Jadhav", project: "Nalasopara–Virar link patch repair", date: "24 Sep 2026", type: "Base preparation", status: "Needs review", evidence: 2, location: "19.4121, 72.8065" },
+  { id: "DWR-260925-05", worker: "A. More", project: "Tulinj Road resurfacing proposal", date: "25 Sep 2026", type: "Site measurement", status: "Submitted", evidence: 4, location: "19.4231, 72.8245" },
+];
